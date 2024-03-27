@@ -1,0 +1,12 @@
+{
+  "type": "fusion-smithing:smithing_fusion",
+  "template": {
+    "item": "fusion-smithing:fusion_smithing_template"
+  },
+  "base": {
+    "tag": "minecraft:hoes"
+  },
+  "addition": {
+    "tag": "minecraft:hoes"
+  }
+}
