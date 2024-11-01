@@ -1,4 +1,4 @@
-package net.karashokleo.fusion_smithing.recipe;
+package karashokleo.fusion_smithing.recipe;
 
 import com.google.gson.JsonObject;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
@@ -10,6 +10,7 @@ import org.jetbrains.annotations.Nullable;
 public record SmithingFusionRecipeProvider(
         Identifier id,
         RecipeSerializer<?> type,
+        SmithingFusionMode mode,
         Ingredient template,
         Ingredient base,
         Ingredient addition
@@ -19,6 +20,7 @@ public record SmithingFusionRecipeProvider(
     @Override
     public void serialize(JsonObject json)
     {
+        json.addProperty("mode", this.mode.name());
         json.add("template", this.template.toJson());
         json.add("base", this.base.toJson());
         json.add("addition", this.addition.toJson());

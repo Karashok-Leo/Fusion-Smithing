@@ -1,4 +1,4 @@
-package net.karashokleo.fusion_smithing.recipe;
+package karashokleo.fusion_smithing.recipe;
 
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
@@ -15,14 +15,16 @@ import java.util.stream.Stream;
 
 public class SmithingFusionRecipe implements SmithingRecipe
 {
-    private final Identifier id;
-    final Ingredient template;
-    final Ingredient base;
-    final Ingredient addition;
+    protected final Identifier id;
+    protected final SmithingFusionMode mode;
+    protected final Ingredient template;
+    protected final Ingredient base;
+    protected final Ingredient addition;
 
-    public SmithingFusionRecipe(Identifier id, Ingredient template, Ingredient base, Ingredient addition)
+    public SmithingFusionRecipe(Identifier id, SmithingFusionMode mode, Ingredient template, Ingredient base, Ingredient addition)
     {
         this.id = id;
+        this.mode = mode;
         this.template = template;
         this.base = base;
         this.addition = addition;
@@ -49,7 +51,9 @@ public class SmithingFusionRecipe implements SmithingRecipe
     @Override
     public boolean matches(Inventory inventory, World world)
     {
-        return this.template.test(inventory.getStack(0)) && this.base.test(inventory.getStack(1)) && this.addition.test(inventory.getStack(2));
+        return this.template.test(inventory.getStack(0)) &&
+               this.base.test(inventory.getStack(1)) &&
+               this.addition.test(inventory.getStack(2));
     }
 
     @Override
@@ -57,7 +61,7 @@ public class SmithingFusionRecipe implements SmithingRecipe
     {
         ItemStack base = inventory.getStack(1).copy();
         NbtCompound additionNbt = inventory.getStack(2).getNbt();
-        if (additionNbt != null) base.getOrCreateNbt().copyFrom(additionNbt);
+        if (additionNbt != null) this.mode.apply(base, additionNbt);
         return base;
     }
 

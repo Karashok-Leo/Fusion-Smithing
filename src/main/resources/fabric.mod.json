@@ -15,7 +15,7 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-          "net.karashokleo.fusion_smithing.FusionSmithing"
+          "karashokleo.fusion_smithing.FusionSmithing"
 		]
 	},
 	"depends": {

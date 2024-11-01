@@ -1,5 +1,6 @@
 {
   "type": "fusion-smithing:smithing_fusion",
+  "mode": "MERGE",
   "template": {
     "item": "fusion-smithing:fusion_smithing_template"
   },

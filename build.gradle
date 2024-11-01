@@ -12,8 +12,11 @@ base {
 
 repositories {
 	maven { url 'https://jitpack.io' }
-//	maven { url 'https://raw.githubusercontent.com/SolidBlock-cn/mvn-repo/main' }
-//	maven { url "https://maven.terraformersmc.com/releases/" }
+
+	maven {
+		name "Will BL Releases"
+		url "https://maven.willbl.dev/releases"
+	}
 }
 
 dependencies {
@@ -22,8 +25,6 @@ dependencies {
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-
-//	modImplementation "pers.solid:brrp-fabric:${project.brrp_version}"
 
 	implementation("com.github.ZsoltMolnarrr:TinyConfig:${project.tiny_config_version}")
 }

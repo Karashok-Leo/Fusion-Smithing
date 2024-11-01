@@ -1,4 +1,4 @@
-package net.karashokleo.fusion_smithing.config;
+package karashokleo.fusion_smithing.config;
 
 public class FSConfig
 {

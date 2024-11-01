@@ -1,7 +1,7 @@
-package net.karashokleo.fusion_smithing.item;
+package karashokleo.fusion_smithing.item;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.karashokleo.fusion_smithing.FusionSmithing;
+import karashokleo.fusion_smithing.FusionSmithing;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.SmithingTemplateItem;
 import net.minecraft.registry.Registries;

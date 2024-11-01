@@ -1,7 +1,7 @@
-package net.karashokleo.fusion_smithing.recipe;
+package karashokleo.fusion_smithing.recipe;
 
 import com.google.gson.JsonObject;
-import net.karashokleo.fusion_smithing.FusionSmithing;
+import karashokleo.fusion_smithing.FusionSmithing;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.RecipeSerializer;
@@ -22,19 +22,21 @@ public class SmithingFusionRecipeSerializer implements RecipeSerializer<Smithing
     @Override
     public SmithingFusionRecipe read(Identifier id, JsonObject json)
     {
+        SmithingFusionMode mode = SmithingFusionMode.valueOf(JsonHelper.getString(json, "mode"));
         Ingredient template = Ingredient.fromJson(JsonHelper.getElement(json, "template"));
         Ingredient base = Ingredient.fromJson(JsonHelper.getElement(json, "base"));
         Ingredient addition = Ingredient.fromJson(JsonHelper.getElement(json, "addition"));
-        return new SmithingFusionRecipe(id, template, base, addition);
+        return new SmithingFusionRecipe(id, mode, template, base, addition);
     }
 
     @Override
     public SmithingFusionRecipe read(Identifier id, PacketByteBuf buf)
     {
+        SmithingFusionMode mode = buf.readEnumConstant(SmithingFusionMode.class);
         Ingredient template = Ingredient.fromPacket(buf);
         Ingredient base = Ingredient.fromPacket(buf);
         Ingredient addition = Ingredient.fromPacket(buf);
-        return new SmithingFusionRecipe(id, template, base, addition);
+        return new SmithingFusionRecipe(id, mode, template, base, addition);
     }
 
     @Override

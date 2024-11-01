@@ -1,11 +1,11 @@
-package net.karashokleo.fusion_smithing;
+package karashokleo.fusion_smithing;
 
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
-import net.karashokleo.fusion_smithing.config.FSConfig;
-import net.karashokleo.fusion_smithing.item.FusionSmithingTemplateItem;
-import net.karashokleo.fusion_smithing.recipe.SmithingFusionRecipeSerializer;
+import karashokleo.fusion_smithing.config.FSConfig;
+import karashokleo.fusion_smithing.item.FusionSmithingTemplateItem;
+import karashokleo.fusion_smithing.recipe.SmithingFusionRecipeSerializer;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
